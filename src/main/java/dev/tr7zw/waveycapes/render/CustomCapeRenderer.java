@@ -1,7 +1,9 @@
-package dev.tr7zw.waveycapes;
+package dev.tr7zw.waveycapes.render;
 
 //? if >= 1.19.3 {
 
+import dev.tr7zw.waveycapes.*;
+import dev.tr7zw.waveycapes.support.*;
 import org.joml.Matrix4f;
 import org.joml.Vector4f;
 //? } else {
@@ -24,14 +26,11 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import dev.tr7zw.transition.mc.MathUtil;
 import dev.tr7zw.transition.mc.VertexConsumerUtil;
 import dev.tr7zw.transition.mc.entitywrapper.PlayerWrapper;
-import dev.tr7zw.waveycapes.support.ModSupport;
-import dev.tr7zw.waveycapes.support.SupportManager;
 import dev.tr7zw.waveycapes.versionless.*;
 import dev.tr7zw.waveycapes.versionless.sim.BasicSimulation;
 import dev.tr7zw.waveycapes.versionless.util.Vector3;
 import dev.tr7zw.waveycapes.versionless.util.Vector4;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 
 public class CustomCapeRenderer {
@@ -43,48 +42,20 @@ public class CustomCapeRenderer {
     private static final float CAPE_HEIGHT = 1F;
     private static final float CAPE_DEPTH = 1F / 16F;
 
-    public void render(PlayerWrapper capeRenderInfo, PoseStack poseStack, MultiBufferSource multiBufferSource,
-            int packedLight, float delta) {
-        CapeRenderer renderer = getCapeRenderer(capeRenderInfo);
-        if (renderer == null)
-            return;
-
-        if (!prepareCape(capeRenderInfo)) {
-            return;
-        }
-
-        VertexConsumer bufferBuilder = renderer.getVertexConsumer(multiBufferSource, capeRenderInfo);
-        if (bufferBuilder == null) {
-            return;
-        }
+    public void render(PlayerWrapper capeRenderInfo, CapeRenderer renderer, VertexConsumer vertexConsumer, PoseStack poseStack, int packedLight, float delta) {
 
         if (ModBase.config.capeStyle == CapeStyle.SMOOTH && renderer.vanillaUvValues()) {
-            renderSmoothCape(poseStack, bufferBuilder, capeRenderInfo, delta, packedLight);
+            renderSmoothCape(poseStack, vertexConsumer, capeRenderInfo, delta, packedLight);
         } else {
             ModelPart[] parts = customCape;
             for (int part = 0; part < PART_COUNT; part++) {
                 ModelPart model = parts[part];
                 modifyPoseStack(poseStack, capeRenderInfo, delta, part);
-                renderer.render(capeRenderInfo, part, model, poseStack, bufferBuilder, packedLight,
+                renderer.render(capeRenderInfo, part, model, poseStack, vertexConsumer, packedLight,
                         OverlayTexture.NO_OVERLAY);
                 poseStack.popPose();
             }
         }
-    }
-
-    private boolean prepareCape(PlayerWrapper capeRenderInfo) {
-        //? if >= 1.21.9 {
-
-        CapeHolder holder = (CapeHolder) capeRenderInfo.getAvatar();
-        //? } else {
-        /*
-         CapeHolder holder = (CapeHolder) capeRenderInfo.getEntity();
-        *///? }
-        if (holder == null) {
-            return false;
-        }
-        holder.updateSimulation(PART_COUNT);
-        return true;
     }
 
     private void renderSmoothCape(PoseStack poseStack, VertexConsumer bufferBuilder, PlayerWrapper capeRenderInfo,
@@ -420,21 +391,6 @@ public class CustomCapeRenderer {
          vector4f.transform(matrix);
          return new Vector4(vector4f.x(), vector4f.y(), vector4f.z(), vector4f.w());
         *///? }
-    }
-
-    private static VanillaCapeRenderer vanillaCape = new VanillaCapeRenderer();
-
-    private CapeRenderer getCapeRenderer(PlayerWrapper capeRenderInfo) {
-        for (ModSupport support : SupportManager.getSupportedMods()) {
-            if (support.shouldBeUsed(capeRenderInfo)) {
-                return support.getRenderer();
-            }
-        }
-        if (capeRenderInfo.getCapeTexture() == null || !capeRenderInfo.isCapeVisible()) {
-            return null;
-        } else {
-            return vanillaCape;
-        }
     }
 
 }

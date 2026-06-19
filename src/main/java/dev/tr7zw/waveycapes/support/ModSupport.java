@@ -1,7 +1,7 @@
 package dev.tr7zw.waveycapes.support;
 
 import dev.tr7zw.transition.mc.entitywrapper.PlayerWrapper;
-import dev.tr7zw.waveycapes.CapeRenderer;
+import dev.tr7zw.waveycapes.render.CapeRenderer;
 import net.minecraft.client.player.AbstractClientPlayer;
 
 public interface ModSupport {

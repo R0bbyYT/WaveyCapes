@@ -110,6 +110,7 @@ public class CustomCapeRenderLayer
         /*
          WaveyCapesBase.INSTANCE.getRenderer().render(capeRenderInfo, poseStack, multiBufferSource, packedLight, delta);
         *///? }
+
         poseStack.popPose();
     }
 

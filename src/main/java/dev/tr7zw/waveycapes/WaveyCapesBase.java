@@ -1,6 +1,7 @@
 package dev.tr7zw.waveycapes;
 
 import dev.tr7zw.waveycapes.delegate.PlayerDelegate;
+import dev.tr7zw.waveycapes.render.*;
 import dev.tr7zw.waveycapes.support.AnimationSupport;
 import dev.tr7zw.waveycapes.support.ShoulderSurfingSupport;
 import dev.tr7zw.waveycapes.support.SupportManager;

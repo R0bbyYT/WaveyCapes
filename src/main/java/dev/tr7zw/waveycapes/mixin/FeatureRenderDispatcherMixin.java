@@ -1,12 +1,14 @@
 package dev.tr7zw.waveycapes.mixin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+
+import dev.tr7zw.waveycapes.render.*;
 import org.spongepowered.asm.mixin.Mixin;
 
 //? if >= 1.21.9 {
 
 import dev.tr7zw.transition.mc.entitywrapper.PlayerWrapper;
-import dev.tr7zw.waveycapes.CapeNodeCollector;
+import dev.tr7zw.waveycapes.render.*;
 import dev.tr7zw.waveycapes.WaveyCapesBase;
 import dev.tr7zw.waveycapes.WaveyCapesMod;
 import net.minecraft.client.Minecraft;
@@ -32,14 +34,10 @@ public class FeatureRenderDispatcherMixin {
      *///? }
     private void renderCapes(CallbackInfo ci) {
         CapeNodeCollector collector = WaveyCapesMod.INSTANCE.getCapeNodeCollector();
-        PoseStack sharedStack = new PoseStack();
         float delta = Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(false);
-        for (CapeNodeCollector.CapeNode cape : collector.getCapes()) {
-            sharedStack.last().set(cape.pose());
-            sharedStack.pushPose();
-            WaveyCapesBase.INSTANCE.getRenderer().render(new PlayerWrapper(cape.state()), sharedStack,
-                    this.bufferSource, cape.packedLight(), delta);
-            sharedStack.popPose();
+        for (CapeNode cape : collector.getCapes()) {
+            CapeRenderUtil.INSTANCE.renderCape(new PlayerWrapper(cape.state()), cape,
+                    new BufferHolder(bufferSource::getBuffer, bufferSource), delta);
         }
         collector.clear();
     }
