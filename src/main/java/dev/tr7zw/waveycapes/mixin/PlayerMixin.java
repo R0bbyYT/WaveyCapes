@@ -25,8 +25,8 @@ import net.minecraft.client.player.AbstractClientPlayer;
 
 @Mixin(value = LivingEntity.class)
 //? } else {
-/*
- @Mixin(net.minecraft.world.entity.player.Player.class)
+
+/*@Mixin(net.minecraft.world.entity.player.Player.class)
 *///? }
 public abstract class PlayerMixin extends Entity implements CapeHolder {
 
@@ -61,11 +61,11 @@ public abstract class PlayerMixin extends Entity implements CapeHolder {
         }
         var entity = (net.minecraft.world.entity.Avatar) (Object) this;
         //? } else {
-        /*
-         if (!((Object) this instanceof AbstractClientPlayer)) {
-            return;
-         }
-         var entity = (AbstractClientPlayer) (Object) this;
+
+        /*if (!((Object) this instanceof AbstractClientPlayer)) {
+           return;
+        }
+        var entity = (AbstractClientPlayer) (Object) this;
         *///? }
         updateSimulation(16);
         PlayerDelegate playerDelegate = new PlayerDelegate(entity);

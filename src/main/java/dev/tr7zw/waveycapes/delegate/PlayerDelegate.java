@@ -16,8 +16,8 @@ public class PlayerDelegate implements MinecraftPlayer {
 
     private net.minecraft.world.entity.Avatar player;
     //? } else {
-    /*
-     private AbstractClientPlayer player;
+
+    /*private AbstractClientPlayer player;
     *///? }
 
     public double getXCloak() {
@@ -32,8 +32,8 @@ public class PlayerDelegate implements MinecraftPlayer {
             return 0;
         }
         //? } else {
-        /*
-         return player.xCloak;
+
+        /*return player.xCloak;
         *///? }
     }
 
@@ -49,8 +49,8 @@ public class PlayerDelegate implements MinecraftPlayer {
             return 0;
         }
         //? } else {
-        /*
-         return player.zCloak;
+
+        /*return player.zCloak;
         *///? }
     }
 

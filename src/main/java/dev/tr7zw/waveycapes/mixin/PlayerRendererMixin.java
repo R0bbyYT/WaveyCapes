@@ -12,8 +12,8 @@ import dev.tr7zw.waveycapes.renderlayers.CustomCapeRenderLayer;
 
 import net.minecraft.client.model.player.*;
 //? } else {
-/*
-import net.minecraft.client.model.*;
+
+/*import net.minecraft.client.model.*;
 *///? }
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -35,8 +35,8 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
 @Mixin(net.minecraft.client.renderer.entity.player.AvatarRenderer.class)
 //? } else {
-/*
- @Mixin(net.minecraft.client.renderer.entity.player.PlayerRenderer.class)
+
+/*@Mixin(net.minecraft.client.renderer.entity.player.PlayerRenderer.class)
 *///? }
    //? if >= 1.21.2 {
 
@@ -46,14 +46,14 @@ public abstract class PlayerRendererMixin
         extends
         LivingEntityRenderer<AbstractClientPlayer, net.minecraft.client.renderer.entity.state.AvatarRenderState, PlayerModel> {
     //? } else {
-    /*
-            extends LivingEntityRenderer<AbstractClientPlayer, net.minecraft.client.renderer.entity.state.AvatarRenderState, PlayerModel> {
+
+    /*extends LivingEntityRenderer<AbstractClientPlayer, net.minecraft.client.renderer.entity.state.AvatarRenderState, PlayerModel> {
     *///? }
        //? } else {
-       /*
-        public abstract class PlayerRendererMixin
-               extends LivingEntityRenderer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
-       *///? }
+
+    /*public abstract class PlayerRendererMixin
+           extends LivingEntityRenderer<AbstractClientPlayer, PlayerModel<AbstractClientPlayer>> {
+    *///? }
 
     @Unique
     private boolean injectedCape = false;
@@ -64,10 +64,10 @@ public abstract class PlayerRendererMixin
         super(context, entityModel, f);
     }
     //? } else if >= 1.17.0 {
-    /*
-     public PlayerRendererMixin(Context context, PlayerModel<AbstractClientPlayer> entityModel, float f) {
-        super(context, entityModel, f);
-     }
+
+    /*public PlayerRendererMixin(Context context, PlayerModel<AbstractClientPlayer> entityModel, float f) {
+       super(context, entityModel, f);
+    }
     *///? } else {
     /*
      public PlayerRendererMixin(EntityRenderDispatcher entityRenderDispatcher,

@@ -15,13 +15,8 @@ public abstract class WaveyCapesBase extends ModBase {
     @Getter
     public static WaveyCapesBase INSTANCE;
 
-    //? if >= 1.21.9 {
-
     @Getter
     private final CapeNodeCollector capeNodeCollector = new CapeNodeCollector();
-    //? }
-    @Getter
-    private final CustomCapeRenderer renderer = new CustomCapeRenderer();
 
     public void init() {
         INSTANCE = this;

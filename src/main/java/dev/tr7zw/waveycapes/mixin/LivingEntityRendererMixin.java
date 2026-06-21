@@ -22,8 +22,8 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class LivingEntityRendererMixin<S extends LivingEntity, T extends LivingEntityRenderState, M extends EntityModel<? super T>> {
     //? } else {
-    /*
-     public class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> {
+
+    /*public class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> {
     *///? }
 
     @Inject(method = "addLayer", at = @At("HEAD"), cancellable = true)

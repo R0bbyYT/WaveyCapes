@@ -11,8 +11,8 @@ import dev.tr7zw.waveycapes.versionless.ModBase;
 
 import net.minecraft.client.renderer.rendertype.*;
 //? } else {
-/*
-import net.minecraft.client.renderer.*;
+
+/*import net.minecraft.client.renderer.*;
 *///? }
 import net.minecraftcapes.config.MinecraftCapesConfig;
 import net.minecraftcapes.player.PlayerHandler;
@@ -29,8 +29,8 @@ public class MinecraftCapesSupport implements ModSupport {
 
                 var entity = player.getAvatar();
                 //? } else {
-                /*
-                 var entity = player.getEntity();
+
+                /*var entity = player.getEntity();
                 *///? }
                 PlayerHandler.get(entity.getUUID()).getCapeLocation();
                 return PlayerHandler.get(entity.getUUID());
@@ -43,27 +43,27 @@ public class MinecraftCapesSupport implements ModSupport {
         }
 
         //? if < 1.21.2 {
-        /*
-         for (java.lang.reflect.Method m : PlayerHandler.class.getMethods()) {
-            try {
-                if (m.getReturnType() != PlayerHandler.class && m.getParameterCount() == 1
-                        && m.getParameterTypes()[0] != java.util.UUID.class) {
-                    continue;
-                }
-                m.invoke(null, test);
-                getCape = player -> {
-                    try {
-                        return (PlayerHandler) m.invoke(null, player);
-                    } catch (IllegalAccessException | java.lang.reflect.InvocationTargetException e) {
-                        return null;
-                    }
-                };
-                ModBase.LOGGER.info("Using '" + m.getName() + "' method for MinecraftCapes.");
-                return;
-            } catch (Throwable ex) {
-                // ignore, MinecraftCapes wont work
-            }
-         }
+
+        /*for (java.lang.reflect.Method m : PlayerHandler.class.getMethods()) {
+           try {
+               if (m.getReturnType() != PlayerHandler.class && m.getParameterCount() == 1
+                       && m.getParameterTypes()[0] != java.util.UUID.class) {
+                   continue;
+               }
+               m.invoke(null, test);
+               getCape = player -> {
+                   try {
+                       return (PlayerHandler) m.invoke(null, player);
+                   } catch (IllegalAccessException | java.lang.reflect.InvocationTargetException e) {
+                       return null;
+                   }
+               };
+               ModBase.LOGGER.info("Using '" + m.getName() + "' method for MinecraftCapes.");
+               return;
+           } catch (Throwable ex) {
+               // ignore, MinecraftCapes wont work
+           }
+        }
         *///? }
         getCape = player -> null;
         ModBase.LOGGER.info("Unable to find a method for MinecraftCapes.");
@@ -92,18 +92,20 @@ public class MinecraftCapesSupport implements ModSupport {
             if (MinecraftCapesConfig.isCapeVisible() && playerHandler.getCapeLocation() != null) {
                 //? if >= 1.21.11 {
 
-                return new CapeInfos(this, RenderTypes.entityTranslucent(playerHandler.getCapeLocation()), playerHandler.getHasCapeGlint());
+                return new CapeInfos(this, RenderTypes.entityTranslucent(playerHandler.getCapeLocation()),
+                        playerHandler.getHasCapeGlint());
                 //? } else  {
-                /*
-                return new CapeInfos(this, RenderType.entityTranslucent(playerHandler.getCapeLocation()), playerHandler.getHasCapeGlint());
+
+                /*return new CapeInfos(this, RenderTypes.entityTranslucent(playerHandler.getCapeLocation()), playerHandler.getHasCapeGlint());
                 *///? }
             } else {
                 //? if >= 1.21.11 {
 
-                return new CapeInfos(this, RenderTypes.entityTranslucent(capeRenderInfo.getCapeTexture()), playerHandler.getHasCapeGlint());
+                return new CapeInfos(this, RenderTypes.entityTranslucent(capeRenderInfo.getCapeTexture()),
+                        playerHandler.getHasCapeGlint());
                 //? } else {
-                /*
-                return new CapeInfos(this, RenderType.entityTranslucent(capeRenderInfo.getCapeTexture()), playerHandler.getHasCapeGlint());
+
+                /*return new CapeInfos(this, RenderTypes.entityTranslucent(capeRenderInfo.getCapeTexture()), playerHandler.getHasCapeGlint());
                 *///? }
             }
         }

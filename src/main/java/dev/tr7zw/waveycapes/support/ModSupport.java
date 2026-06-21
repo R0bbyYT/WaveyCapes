@@ -10,10 +10,10 @@ public interface ModSupport {
 
     public boolean shouldBeUsed(PlayerWrapper capeRenderInfo);
     //? } else {
-    /*
-     default boolean shouldBeUsed(PlayerWrapper capeRenderInfo) {
-        return shouldBeUsed((AbstractClientPlayer) capeRenderInfo.getEntity());
-     }
+
+    /*default boolean shouldBeUsed(PlayerWrapper capeRenderInfo) {
+       return shouldBeUsed((AbstractClientPlayer) capeRenderInfo.getEntity());
+    }
     *///? }
 
     @Deprecated

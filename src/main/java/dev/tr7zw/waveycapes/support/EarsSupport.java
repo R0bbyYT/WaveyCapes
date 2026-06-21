@@ -20,8 +20,8 @@ import net.minecraft.client.model.geom.ModelPart;
 
 import net.minecraft.client.renderer.rendertype.*;
 //? } else {
-/*
-import net.minecraft.client.renderer.*;
+
+/*import net.minecraft.client.renderer.*;
 *///? }
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.*;
@@ -43,12 +43,11 @@ public class EarsSupport implements ModSupport, EarsInhibitor {
 
         var entity = capeRenderInfo.getAvatar();
         //? } else {
-        /*
-         var entity = capeRenderInfo.getEntity();
+
+        /*var entity = capeRenderInfo.getEntity();
         *///? }
         EarsFeatures playerFeatures = EarsFeatures.getById(entity.getUUID());
-        return playerFeatures != null && playerFeatures.capeEnabled
-                && getPlayerCape(capeRenderInfo) != null;
+        return playerFeatures != null && playerFeatures.capeEnabled && getPlayerCape(capeRenderInfo) != null;
     }
 
     @Override
@@ -56,8 +55,7 @@ public class EarsSupport implements ModSupport, EarsInhibitor {
         return render;
     }
 
-    private Identifier getPlayerCape(
-            PlayerWrapper capeRenderInfo) {
+    private Identifier getPlayerCape(PlayerWrapper capeRenderInfo) {
         var skin = capeRenderInfo.getCapeTexture();
         if (skin != null) {
             return GeneralUtil.getResourceLocation(skin.getNamespace(), TexSource.CAPE.addSuffix(skin.getPath()));
@@ -91,8 +89,8 @@ public class EarsSupport implements ModSupport, EarsInhibitor {
 
                     return new CapeInfos(this, RenderTypes.armorCutoutNoCull(cape), false);
                     //? } else {
-                    /*
-                    return new CapeInfos(this, RenderType.armorCutoutNoCull(cape), false);
+
+                    /*return new CapeInfos(this, RenderTypes.armorCutoutNoCull(cape), false);
                     *///? }
                 }
             }
