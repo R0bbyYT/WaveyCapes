@@ -265,6 +265,10 @@ public class CustomCapeRenderer {
         /*var entity = capeRenderInfo.getEntity();
         *///? }
         BasicSimulation simulation = ((CapeHolder) entity).getSimulation();
+        if (simulation == null) {
+            // race condition where the cape is being rendered before the simulation is initialized, just render it without movement instead of crashing
+            return;
+        }
         poseStack.pushPose();
         poseStack.translate(0.0D, 0.0D, 0.125D);
 
