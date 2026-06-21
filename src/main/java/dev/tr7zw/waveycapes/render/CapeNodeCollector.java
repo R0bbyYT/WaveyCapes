@@ -2,23 +2,19 @@ package dev.tr7zw.waveycapes.render;
 
 //? if >= 1.21.9 {
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.*;
 import dev.tr7zw.transition.mc.entitywrapper.*;
+import dev.tr7zw.waveycapes.*;
 import dev.tr7zw.waveycapes.support.*;
-import lombok.Getter;
-import net.minecraft.client.renderer.entity.state.AvatarRenderState;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.state.*;
+import net.minecraft.client.renderer.rendertype.*;
 
 public class CapeNodeCollector {
 
     private final VanillaCapeRenderer vanillaCape = new VanillaCapeRenderer();
 
-    @Getter
-    private final List<CapeNode> capes = new ArrayList<>();
-
-    public void submitCape(AvatarRenderState state, PoseStack stack, int packedLight) {
+    public void submitCape(SubmitNodeCollector submitNodeCollector, AvatarRenderState state, PoseStack stack, int packedLight, float delta) {
         var playerWrapper = new PlayerWrapper(state);
         var renderer = getCapeRenderer(playerWrapper);
         if (renderer == null) {
@@ -28,11 +24,19 @@ public class CapeNodeCollector {
         if (capeInfo == null) {
             return;
         }
-        capes.add(new CapeNode(state, capeInfo, stack.last().copy(), packedLight));
-    }
+        if (capeInfo.isGlint()) {
+            submitNodeCollector.submitCustomGeometry(stack, RenderTypes.entityGlint(), (pose, vertexConsumer) -> {
+                PoseStack sharedStack = new PoseStack();
+                sharedStack.last().set(pose);
+                WaveyCapesBase.getINSTANCE().getRenderer().render(playerWrapper, renderer, vertexConsumer, sharedStack, packedLight, delta);
+            });
+        }
 
-    public void clear() {
-        capes.clear();
+        submitNodeCollector.submitCustomGeometry(stack, capeInfo.renderType(), (pose, vertexConsumer) -> {
+            PoseStack sharedStack = new PoseStack();
+            sharedStack.last().set(pose);
+            WaveyCapesBase.getINSTANCE().getRenderer().render(playerWrapper, renderer, vertexConsumer, sharedStack, packedLight, delta);
+        });
     }
 
     private CapeRenderer getCapeRenderer(PlayerWrapper capeRenderInfo) {

@@ -3,7 +3,7 @@ package dev.tr7zw.waveycapes;
 import java.util.ArrayList;
 import java.util.List;
 
-import dev.tr7zw.transition.mc.ComponentProvider;
+import dev.tr7zw.transition.mc.*;
 import dev.tr7zw.trender.gui.client.AbstractConfigScreen;
 import dev.tr7zw.trender.gui.client.BackgroundPainter;
 import dev.tr7zw.trender.gui.widget.WButton;
@@ -60,7 +60,7 @@ public class WaveyCapesConfigScreen {
             WButton doneButton = new WButton(CommonComponents.GUI_DONE);
             doneButton.setOnClick(() -> {
                 save();
-                Minecraft.getInstance().setScreen(previous);
+                GeneralUtil.setScreen(previous);
             });
             root.add(doneButton, 0, 26, 6, 2);
 

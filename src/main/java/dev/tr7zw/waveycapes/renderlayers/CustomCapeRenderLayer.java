@@ -105,7 +105,7 @@ public class CustomCapeRenderLayer
 
         //? if >= 1.21.9 {
 
-        WaveyCapesBase.INSTANCE.getCapeNodeCollector().submitCape(renderState, poseStack, packedLight);
+        WaveyCapesBase.INSTANCE.getCapeNodeCollector().submitCape(submitNodeCollector, renderState, poseStack, packedLight, delta);
         //? } else {
         /*
          WaveyCapesBase.INSTANCE.getRenderer().render(capeRenderInfo, poseStack, multiBufferSource, packedLight, delta);
