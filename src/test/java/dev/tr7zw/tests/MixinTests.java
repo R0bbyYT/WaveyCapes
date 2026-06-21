@@ -10,8 +10,8 @@ import net.minecraft.SharedConstants;
 
 import net.minecraft.client.model.player.*;
 //? } else {
-/*
-import net.minecraft.client.model.*;
+
+/*import net.minecraft.client.model.*;
 *///? }
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.server.Bootstrap;
@@ -33,8 +33,8 @@ public class MixinTests {
 
         objenesis.newInstance(net.minecraft.client.renderer.entity.player.AvatarRenderer.class);
         //? } else {
-        /*
-         objenesis.newInstance(net.minecraft.client.renderer.entity.player.PlayerRenderer.class);
+
+        /*objenesis.newInstance(net.minecraft.client.renderer.entity.player.PlayerRenderer.class);
         *///? }
     }
 

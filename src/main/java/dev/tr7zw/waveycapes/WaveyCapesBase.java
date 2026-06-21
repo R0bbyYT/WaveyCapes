@@ -1,6 +1,7 @@
 package dev.tr7zw.waveycapes;
 
 import dev.tr7zw.waveycapes.delegate.PlayerDelegate;
+import dev.tr7zw.waveycapes.render.*;
 import dev.tr7zw.waveycapes.support.AnimationSupport;
 import dev.tr7zw.waveycapes.support.ShoulderSurfingSupport;
 import dev.tr7zw.waveycapes.support.SupportManager;
@@ -14,13 +15,8 @@ public abstract class WaveyCapesBase extends ModBase {
     @Getter
     public static WaveyCapesBase INSTANCE;
 
-    //? if >= 1.21.9 {
-
     @Getter
     private final CapeNodeCollector capeNodeCollector = new CapeNodeCollector();
-    //? }
-    @Getter
-    private final CustomCapeRenderer renderer = new CustomCapeRenderer();
 
     public void init() {
         INSTANCE = this;

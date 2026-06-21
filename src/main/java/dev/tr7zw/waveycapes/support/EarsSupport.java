@@ -13,19 +13,16 @@ import com.unascribed.ears.common.render.EarsRenderDelegate.TexSource;
 
 import dev.tr7zw.transition.mc.GeneralUtil;
 import dev.tr7zw.transition.mc.entitywrapper.PlayerWrapper;
-import dev.tr7zw.waveycapes.CapeRenderer;
+import dev.tr7zw.waveycapes.render.*;
 import dev.tr7zw.waveycapes.NMSUtil;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.renderer.MultiBufferSource;
 //? if >= 1.21.11 {
 
-import net.minecraft.client.renderer.feature.*;
 import net.minecraft.client.renderer.rendertype.*;
 //? } else {
-/*
-import net.minecraft.client.renderer.*;
+
+/*import net.minecraft.client.renderer.*;
 *///? }
-import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.*;
 
@@ -46,12 +43,11 @@ public class EarsSupport implements ModSupport, EarsInhibitor {
 
         var entity = capeRenderInfo.getAvatar();
         //? } else {
-        /*
-         var entity = capeRenderInfo.getEntity();
+
+        /*var entity = capeRenderInfo.getEntity();
         *///? }
         EarsFeatures playerFeatures = EarsFeatures.getById(entity.getUUID());
-        return playerFeatures != null && playerFeatures.capeEnabled
-                && getPlayerCape(capeRenderInfo, playerFeatures) != null;
+        return playerFeatures != null && playerFeatures.capeEnabled && getPlayerCape(capeRenderInfo) != null;
     }
 
     @Override
@@ -59,8 +55,7 @@ public class EarsSupport implements ModSupport, EarsInhibitor {
         return render;
     }
 
-    private /*? >= 1.21.11 {*/ Identifier /*?} else {*//* Identifier *//*?}*/ getPlayerCape(
-            PlayerWrapper capeRenderInfo, EarsFeatures playerFeatures) {
+    private Identifier getPlayerCape(PlayerWrapper capeRenderInfo) {
         var skin = capeRenderInfo.getCapeTexture();
         if (skin != null) {
             return GeneralUtil.getResourceLocation(skin.getNamespace(), TexSource.CAPE.addSuffix(skin.getPath()));
@@ -82,32 +77,20 @@ public class EarsSupport implements ModSupport, EarsInhibitor {
         }
 
         @Override
-        public VertexConsumer getVertexConsumer(MultiBufferSource multiBufferSource, PlayerWrapper capeRenderInfo) {
+        public CapeInfos getCapeInfo(PlayerWrapper capeRenderInfo) {
             EarsFeatures playerFeatures = EarsFeatures.getById(capeRenderInfo.getEntity().getUUID());
 
             if (playerFeatures != null && playerFeatures.capeEnabled) {
-                var cape = getPlayerCape(capeRenderInfo, playerFeatures);
-                if (cape != null) {
-                    //? if >= 26.1 {
 
-                    return ItemFeatureRenderer.getFoilBuffer(multiBufferSource, RenderTypes.armorCutoutNoCull(cape),
-                            false, false);
-                    //? } else if >= 1.21.11 {
-                    /*
-                    return ItemRenderer.getFoilBuffer(multiBufferSource, RenderTypes.armorCutoutNoCull(cape), false,
-                            false);
-                    *///? } else if >= 1.21.9 {
-                    /*
-                    return ItemRenderer.getFoilBuffer(multiBufferSource, RenderType.armorCutoutNoCull(cape), false,
-                            false);
-                    *///? } else if >= 1.21.0 {
-                    /*
-                     return ItemRenderer.getArmorFoilBuffer(multiBufferSource,
-                            RenderType.armorCutoutNoCull(cape), false);
-                    *///? } else {
-                    /*
-                     return ItemRenderer.getArmorFoilBuffer(multiBufferSource,
-                              RenderType.armorCutoutNoCull(cape), false, false);
+                var cape = getPlayerCape(capeRenderInfo);
+                if (cape != null) {
+
+                    //? if >= 1.21.11 {
+
+                    return new CapeInfos(this, RenderTypes.armorCutoutNoCull(cape), false);
+                    //? } else {
+
+                    /*return new CapeInfos(this, RenderTypes.armorCutoutNoCull(cape), false);
                     *///? }
                 }
             }
