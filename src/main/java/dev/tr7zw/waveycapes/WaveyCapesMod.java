@@ -1,9 +1,7 @@
 package dev.tr7zw.waveycapes;
 
 import dev.tr7zw.transition.loader.ModLoaderUtil;
-import dev.tr7zw.waveycapes.support.EarsSupport;
-import dev.tr7zw.waveycapes.support.MinecraftCapesSupport;
-import dev.tr7zw.waveycapes.support.SupportManager;
+import dev.tr7zw.waveycapes.support.*;
 //? if fabric {
 
 import net.fabricmc.api.ClientModInitializer;
@@ -31,6 +29,14 @@ public class WaveyCapesMod extends WaveyCapesBase implements ClientModInitialize
             SupportManager.mods.add(new EarsSupport());
             LOGGER.info("Wavey Capes loaded Ears support!");
         }
+
+        //? if (fabric || neoforge) && 1.21.11 {
+        /*
+        if (doesClassExist("com.wynntils.services.cosmetics.type.WynntilsCapeLayer")) {
+            SupportManager.mods.add(new WynntilsSupport());
+            LOGGER.info("Wavey Capes loaded Wynntils support!");
+        }
+        *///? }
     }
 
     @Override

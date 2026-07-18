@@ -21,6 +21,7 @@ replacements:
       compileOnly 'maven.modrinth:minecraftcapes:fabric-26.1-1.0.1'\n
       compileOnly 'maven.modrinth:shoulder-surfing-reloaded:MCDpnF47'\n
       } else {\n
+      modCompileOnly 'maven.modrinth:dU5Gb9Ab:bdIOz8t1'\n
       modCompileOnly 'curse.maven:morebanners-515000:4575797'\n
       modCompileOnly 'maven.modrinth:ears:1.4.6+fabric-1.20.2'\n
       modCompileOnly 'maven.modrinth:playeranimator:1.0.2-rc1+1.20.4-fabric'\n
@@ -40,6 +41,7 @@ replacements:
       } else {\n
       modCompileOnly 'curse.maven:minecraftcapes-mod-359836:7318376'\n
       }\n
+      modCompileOnly 'maven.modrinth:dU5Gb9Ab:Wgefxzv7'\n
       modCompileOnly 'maven.modrinth:playeranimator:1.0.2-rc1+1.20.4-forge'\n
       modCompileOnly 'maven.modrinth:ears:1.4.6+fabric-1.20.2'\n
       modCompileOnly 'maven.modrinth:shoulder-surfing-reloaded:DKEyLO9H'\n
