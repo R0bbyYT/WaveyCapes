@@ -100,7 +100,7 @@ public interface CapeHolder {
         double changeZ = -strave.x * straveMul;
         simulation.setSneaking(abstractClientPlayer.isCrouching());
         Vector3 change = new Vector3((float) changeX, (float) changeY, (float) changeZ);
-        if (abstractClientPlayer.isVisuallySwimming()) {
+        /*       if (abstractClientPlayer.isVisuallySwimming()) {
             float rotation = abstractClientPlayer.getXRot(); // -90 = swimming up, 0 = straight, 90 = down
             // the simulation has the body as reference, so if the player is swimming
             // straight down, gravity needs to point up(the cape should move into the
@@ -109,10 +109,10 @@ public interface CapeHolder {
             rotation += 90;
             // apply rotation
             gravity.rotateDegrees(rotation);
-
+        
             change.rotateDegrees(rotation);
         }
-        simulation.setGravityDirection(gravity);
+        simulation.setGravityDirection(gravity);*/
 
         change = ModBase.getINSTANCE().applyModAnimations(abstractClientPlayer, change);
         simulation.applyMovement(change);
