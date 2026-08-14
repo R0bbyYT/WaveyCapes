@@ -1,54 +1,110 @@
-![](https://raw.githubusercontent.com/tr7zw/WaveyCapes/1.19.3/img/header.png)
+![Wavey Capes Banner](https://tr7zw.github.io/uikit/banner/header_wavey-capes.png)
 
-[![Discord](https://tr7zw.dev/curse/Discord-long.png)](https://discord.gg/2wKH8yeThf)
+<p align="center" style="text-align: center;">
+  <a href="https://discord.gg/caVV5eXekm"><img src="https://tr7zw.github.io/uikit/social_buttons_icon/Discord-Button-64.png" alt="Discord" style="margin: 5px 10px;"></a>
+  <a href="https://github.com/tr7zw/WaveyCapes"><img src="https://tr7zw.github.io/uikit/social_buttons_icon/Github-Button-64.png" alt="GitHub" style="margin: 5px 10px;"></a>
+  <a href="https://modrinth.com/mod/wavey-capes"><img src="https://tr7zw.github.io/uikit/social_buttons_icon/Modrinth-Button-64.png" alt="GitHub" style="margin: 5px 10px;"></a>
+  <a href="https://www.curseforge.com/minecraft/mc-mods/waveycapes"><img src="https://tr7zw.github.io/uikit/social_buttons_icon/Curseforge-Button-64.png" alt="GitHub" style="margin: 5px 10px;"></a>
+</p>
 
-# WaveyCapes
+<br>![Divider](https://tr7zw.github.io/uikit/divider_faded/Divider_03.png)
 
-The cape shouldn't be a static slab. WaveyCapes mod animates the cape in a more fluent way, adding physics and rendering it in one bent part instead of small cubes. You can change between rendering styles, cape behavior, and wind effects in the config screen accessible via the mod-list (requires Mod Menu on fabric).
+<img src="https://tr7zw.github.io/uikit/headlines/large/About.png" alt="About" style="margin: 5px 10px;">
 
-![](https://raw.githubusercontent.com/tr7zw/WaveyCapes/1.19.3/img/moving.gif)
+**WaveyCapes** brings your cape to life with smooth animations and realistic physics. Instead of a stiff block of a cape, this mod renders it as a single, flexible piece that bends and flows naturally.
 
-Since this mod is purely visual and fully clientside, it doesn't have to be installed on servers and works everywhere.
+Customize your cape's appearance and behavior using the in-game config screen - accessible via the mod list. Choose between different rendering styles, tweak wind effects, and fine-tune the physics to your liking.
 
-## Dependencies
+Since WaveyCapes is purely visual and fully client-side, it works seamlessly on any server without requiring installation server-side.
 
-- None
+<br>![Divider](https://tr7zw.github.io/uikit/divider_faded/Divider_03.png)
 
-## Incompatible
+<br>![Features](https://tr7zw.github.io/uikit/headlines/large/Features.png)
 
-- Elytra Trinket
-- Customizable Elytra
-- Curious Elytra
+### Simulation V2 (Default)
+- Capes sway left and right for a more dynamic feel
+- Improved bending physics to prevent clipping or harsh angles
+- Fully reworked underwater behavior and resistance
 
-## Tested with
+### Different Styles
+- Simulation V2 - Fully dynamic and simulated cape
+- Simulation - "2022 was *HOW* long ago?"
+- Classic - Just adds a nice bend into the cape
+- Dungeons - Replica of the Minecraft Dungeons cape behavior
 
-- First person mod
-- Not enough animations
-- Sodium
-- Iris
-- Optifine (Note: Optifine does not support the new cape rendering! It will use the old style)
-- Kappa (Optifine capes without using Optifine)
-- Fabric Capes
-- More Banner Features (only supports the old style)
-- Elytra Trinket (Fabric)
-- MinecraftCapes (not on all Minecraft/mod-loader versions!)
+<br>
 
-## FAQ
+[![Essential](https://tr7zw.github.io/uikit/banner/essential_1.png)](https://essential.gg/x/tr7zw)<br><br>
+![Need a 24/7 Server? Check this out!](https://tr7zw.github.io/uikit/banner/shockbyte_divider.png)
+[![Shockbyte](https://tr7zw.github.io/uikit/banner/shockbyte_small.png)](http://bit.ly/4bczSJY)
 
-- Q: How do I access the config screen?
-  A: The config screen is accessible via the mod-list (requires Mod Menu on fabric).
-- Q: Does this mod work on servers?
-  A: No, this mod is purely visual and fully clientside, so it doesn't have to be installed on servers.
-- Q: Does this mod work with Optifine?
-  A: Optifine does not support the new cape rendering, it will use the old style.
-- Q: How do I get the cape to look like the older versions of the mod?
-  A: You can change between rendering styles, cape behavior, and wind effects in the config screen.
+<br>![Divider](https://tr7zw.github.io/uikit/divider_faded/Divider_03.png)
 
-Support via [![Discord](https://tr7zw.dev/curse/Discord.png)](https://discord.gg/2wKH8yeThf) or [Github](https://github.com/tr7zw/3d-skin-layers)!
+<br>![Compatibility & Dependancys](https://tr7zw.github.io/uikit/headlines/medium/Compatibility%20&%20Dependancys.png)
 
-## License
+| Minecraft    | Loader                 | Status          | Version  | Note                                                 |
+| ------------ | ---------------------- | --------------- | -------- | ---------------------------------------------------- |
+| 1.16.5+      | Fabric/Forge*/NeoForge | ✅ Supported     | Latest   |                                                      |
+| *1.16.5      | Forge                  | ⚠️ Unsupported   | Outdated | Unsupported, until it gets support for JarInJar mods |
+| 1.12.2/1.8.9 | Forge                  | ❌ Not supported | Outdated | Might get new updates at some point                  |
 
-This project is licensed under [``tr7zw Protective License``](LICENSE).
-This license does not allow others to distribute the software/derivative works(in source or binary form).
-You have to contact the author to get permission for redistribution. (For example: Modpacks(that are not hosted on CurseForge), "Clients", mod hosting sites).
-Keep in mind that [Githubs TOS](https://docs.github.com/en/github/site-policy/github-terms-of-service#d-user-generated-content) and [Overwolfs TOS](https://www.overwolf.com/legal/terms/) apply at their respective places. This (among other things) means you don't need to ask to include the mod in a CurseForge Modpack and that by contributing code it explicitly gets the same license as the repository.
+| Mod                       | Status            | Note                                                          |
+| ------------------------- | ----------------- | ------------------------------------------------------------- |
+| Fabric Capes              | ✅ Supported       |                                                               |
+| MinecraftCapes            | ✅ Supported       |                                                               |
+| Essential                 | ✅ Supported       |                                                               |
+| Shoulder Surfing Reloaded | ✅ Supported       |                                                               |
+| Ears                      | ✅ Supported       |                                                               |
+| Player Animator           | ✅ Supported       | This means mods that use it like Better Combat and Emotecraft |
+| More Banner Features      | ⚠️ Partial support | Only supports the old style                                   |
+| Lunar Client              | ❌ Not supported   | Will never get support!                                       |
+
+And probably many more, just [try it and see](https://tryitands.ee/)!
+
+<br>![Divider](https://tr7zw.github.io/uikit/divider_faded/Divider_03.png)
+
+<br>![Screenshots / Media](https://tr7zw.github.io/uikit/headlines/medium/Screenshots%20Media.png)
+
+![Cape Example](https://tr7zw.github.io/uikit/screens/waveycapes1.webp)
+
+### Check out Essential to get some fun cosmetics for you and your friends, including animated capes!
+<a href="http://essential.gg"><img src="https://images.essential.gg/wardrobe/cape-b5be96ad5ca77158-640.webp" alt="drawing" width="200"/></a>
+
+<br>![Divider](https://tr7zw.github.io/uikit/divider_faded/Divider_03.png)
+
+<br>![Known Issues](https://tr7zw.github.io/uikit/headlines/medium/Known%20Issues.png)
+
+- When swimming/crawling, the cape in Simulation V2 style can fold the wrong way.
+- Custom slots like Curios are currently ignored for the cape offset.
+- Mods that hide the chestplate like Show my Skin are also ignored for the cape offset.
+
+<br>![Divider](https://tr7zw.github.io/uikit/divider_faded/Divider_03.png)
+
+<br>![FAQ](https://tr7zw.github.io/uikit/headlines/medium/FAQ.png)
+
+### Does this need to be installed on the server?
+
+No. This is a fully client-side mod and does **not** need to be installed on the server.
+
+### Will this work with mod x that adds capes?
+
+[Try it and see](https://tryitands.ee/). If the cape is implemented in a vanilla/mod friendly way, it should just work.
+
+### Can I get a cape?
+
+This mod will not give you a cape. Either you already have one from Mojang, or use one of the many supported mods listed above to get one for free.
+
+### I am making a modpack, how do I remove that Essential button in the main menu/pause screen?
+
+Open the poput by pressing the button, click on ``I don't want to see this`` and confirm. Make sure to include the ``config/essential-mod-partner/config.json`` in your modpack.
+
+<br>![Divider](https://tr7zw.github.io/uikit/divider_faded/Divider_03.png)
+
+<br>![Credits & license](https://tr7zw.github.io/uikit/headlines/medium/Credits%20&%20License.png)
+
+👤 Thanks to the awesome translators and contributors on Github! 
+<a href="https://github.com/tr7zw/EntityCulling/graphs/contributors">
+  <img src="https://tr7zw.github.io/uikit/links/underlined/more_details.png" style="vertical-align: middle;" alt="Link">
+</a> <br><br>
+📄 License: tr7zw Protective License <br>
+Feel free to use this mod in your Modrinth/Curseforge hosted modpacks without asking for permission. Do not redistribute the jar files anywhere else!
