@@ -1,9 +1,3 @@
-repositories {
-    maven {
-        url = "https://maven.laby.net/api/v1/maven/release/"
-    }
-}
-
 stonecutter {
     replacements.string(current.parsed >= "1.21.11") {
         replace("RenderType.", "RenderTypes.")
